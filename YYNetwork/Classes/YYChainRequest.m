@@ -6,8 +6,8 @@
 //  Copyright © 2017年 YY. All rights reserved.
 //
 
-#import "YYNhainRequest.h"
-#import "YYNhainRequestAgent.h"
+#import "YYChainRequest.h"
+#import "YYChainRequestAgent.h"
 #import "YYNetworkPrivate.h"
 #import "YYBaseRequest.h"
 

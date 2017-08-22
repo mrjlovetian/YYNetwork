@@ -6,7 +6,7 @@
 //  Copyright © 2017年 YY. All rights reserved.
 //
 
-#import "YYNhainRequestAgent.h"
+#import "YYChainRequestAgent.h"
 
 @interface YYNhainRequestAgent()
 

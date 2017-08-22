@@ -16,7 +16,7 @@
 #import "YYNetworkConfig.h"
 
 #import "YYBatchRequest.h"
-#import "YYNhainRequest.h"
+#import "YYChainRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

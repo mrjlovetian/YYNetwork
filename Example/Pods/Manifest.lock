@@ -1,0 +1,16 @@
+PODS:
+  - YYNetwork (0.1.0)
+
+DEPENDENCIES:
+  - YYNetwork (from `../`)
+
+EXTERNAL SOURCES:
+  YYNetwork:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YYNetwork: ff7532e1ddc5017d75506635e6f446afb896662a
+
+PODFILE CHECKSUM: 83f449c1292f990ef6611c411f527a959fd059e9
+
+COCOAPODS: 1.2.1

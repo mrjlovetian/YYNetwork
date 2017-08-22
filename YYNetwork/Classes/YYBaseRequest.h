@@ -2,8 +2,8 @@
 //  YYBaseRequest.h
 //  MRJ
 //
-//  Created by YHJ on 2017/2/17.
-//  Copyright © 2017年 YHJ. All rights reserved.
+//  Created by YY on 2017/2/17.
+//  Copyright © 2017年 YY. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
