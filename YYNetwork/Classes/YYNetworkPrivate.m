@@ -1,5 +1,5 @@
 //
-//  YYBetworkPrivate.m
+//  YYNetworkPrivate.m
 //  TopsTechNetWorking
 //
 //  Created by YY on 2017/2/20.
@@ -21,7 +21,7 @@ void YYLog(NSString *format, ...) {
 #endif
 }
 
-@implementation YYBetworkUtils
+@implementation YYNetworkUtils
 
 + (BOOL)validateJSON:(id)json withValidator:(id)jsonValidator {
     if ([json isKindOfClass:[NSDictionary class]] &&

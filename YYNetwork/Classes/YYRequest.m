@@ -270,7 +270,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     }
     // App version  判断缓存版本号是否一致
     NSString *appVersionString = self.cacheMetadata.appVersionString;
-    NSString *currentAppVersionString = [YYBetworkUtils appVersionString];
+    NSString *currentAppVersionString = [YYNetworkUtils appVersionString];
     if (appVersionString || currentAppVersionString) {
         if (appVersionString.length != currentAppVersionString.length || ![appVersionString isEqualToString:currentAppVersionString]) {
             if (error) {
@@ -333,9 +333,9 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
                 YYNacheMetadata *metadata = [[YYNacheMetadata alloc] init];
                 metadata.version = [self cacheVersion];
                 metadata.sensitiveDataString = ((NSObject *)[self cacheSensitiveData]).description;
-                metadata.stringEncoding = [YYBetworkUtils stringEncodingWithRequest:self];
+                metadata.stringEncoding = [YYNetworkUtils stringEncodingWithRequest:self];
                 metadata.creationDate = [NSDate date];
-                metadata.appVersionString = [YYBetworkUtils appVersionString];
+                metadata.appVersionString = [YYNetworkUtils appVersionString];
                 [NSKeyedArchiver archiveRootObject:metadata toFile:[self cacheMetadataFilePath]];
             } @catch (NSException *exception) {
                 YYLog(@"Save cache failed, reason = %@", exception.reason);
@@ -378,7 +378,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     if (error) {
         YYLog(@"create cache directory failed, error = %@", error);
     } else {
-        [YYBetworkUtils addDoNotBackupAttribute:path];
+        [YYNetworkUtils addDoNotBackupAttribute:path];
     }
 }
 
@@ -389,7 +389,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     NSString *path = [pathOfLibrary stringByAppendingPathComponent:@"LazyRequestCache"];
     
     // Filter cache base path
-    NSArray<id<YYNacheDirPathFilterProtocol>> *filters = [[YYBetworkConfig sharedConfig] cacheDirPathFilters];
+    NSArray<id<YYNacheDirPathFilterProtocol>> *filters = [[YYNetworkConfig sharedConfig] cacheDirPathFilters];
     if (filters.count > 0) {
         for (id<YYNacheDirPathFilterProtocol> f in filters) {
             path = [f filterCacheDirPath:path withRequest:self];
@@ -404,11 +404,11 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
 ///http 缓存文件名称
 - (NSString *)cacheFileName {
     NSString *requestUrl = [self requestUrl];
-    NSString *baseUrl = [YYBetworkConfig sharedConfig].baseUrl;
+    NSString *baseUrl = [YYNetworkConfig sharedConfig].baseUrl;
     id argument = [self cacheFileNameFilterForRequestArgument:[self requestArgument]];
     NSString *requestInfo = [NSString stringWithFormat:@"Method:%ld Host:%@ Url:%@ Argument:%@",
                              (long)[self requestMethod], baseUrl, requestUrl, argument];
-    NSString *cacheFileName = [YYBetworkUtils md5StringFromString:requestInfo];
+    NSString *cacheFileName = [YYNetworkUtils md5StringFromString:requestInfo];
     return cacheFileName;
 }
 

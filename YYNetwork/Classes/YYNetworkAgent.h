@@ -1,5 +1,5 @@
 //
-//  YYBetworkAgent.h
+//  YYNetworkAgent.h
 //  TopsTechNetWorking
 //
 //  Created by YY on 2017/2/17.
@@ -12,11 +12,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YYBetworkAgent : NSObject
+@interface YYNetworkAgent : NSObject
 
 -(instancetype)init;
 
-+(YYBetworkAgent *)sharedAgent;
++(YYNetworkAgent *)sharedAgent;
 
 -(void)addRequest:(YYBaseRequest *)request;
 

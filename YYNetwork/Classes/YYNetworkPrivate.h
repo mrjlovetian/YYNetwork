@@ -24,7 +24,7 @@ FOUNDATION_EXPORT void YYLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 @class AFHTTPSessionManager;
 
-@interface YYBetworkUtils : NSObject
+@interface YYNetworkUtils : NSObject
 
 + (BOOL)validateJSON:(id)json withValidator:(id)jsonValidator;
 
@@ -81,7 +81,7 @@ FOUNDATION_EXPORT void YYLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 @end
 
-@interface YYBetworkAgent (Private)
+@interface YYNetworkAgent (Private)
 
 - (AFHTTPSessionManager *)manager;
 - (void)resetURLSessionManager;

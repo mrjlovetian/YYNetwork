@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YYNetwork'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'YYNetwork about Net request and response, the network like other net request.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '7.0'
-  s.ios.deployment_target = '9.0'
+  s.tvos.deployment_target = '9.0'
 
   s.source_files = 'YYNetwork/Classes/**/*'
   

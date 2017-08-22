@@ -1,5 +1,5 @@
 //
-//  YYBetworkConfig.m
+//  YYNetworkConfig.m
 //  MRJ
 //
 //  Created by YY on 2017/2/20.
@@ -8,13 +8,13 @@
 
 #import "YYNetworkConfig.h"
 
-@implementation YYBetworkConfig{
+@implementation YYNetworkConfig{
     NSMutableArray<id<YYUrlFilterProtocol>> *_urlFilters;
     NSMutableArray<id<YYNacheDirPathFilterProtocol>> *_cacheDirPathFilters;
 }
 
 
-+ (YYBetworkConfig *)sharedConfig {
++ (YYNetworkConfig *)sharedConfig {
     static id sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

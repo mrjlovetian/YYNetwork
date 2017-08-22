@@ -1,5 +1,5 @@
 //
-//  YYBetworkConfig.h
+//  YYNetworkConfig.h
 //  MRJ
 //
 //  Created by YY on 2017/2/20.
@@ -10,7 +10,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 
-@class YYBetworkConfig;
+@class YYNetworkConfig;
 @class YYBaseRequest;
 
 ///  YYUrlFilterProtocol can be used to append common parameters to requests before sending them.
@@ -36,13 +36,13 @@
 @end
 
 
-@interface YYBetworkConfig : NSObject
+@interface YYNetworkConfig : NSObject
 
 - (instancetype)init NS_UNAVAILABLE ;
 + (instancetype)new NS_UNAVAILABLE;
 
 ///  Return a shared config object.
-+ (YYBetworkConfig *)sharedConfig;
++ (YYNetworkConfig *)sharedConfig;
 
 ///  Request base URL, such as "http://www.mrj.com". Default is empty string.
 @property (nonatomic, strong) NSString *baseUrl;
