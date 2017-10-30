@@ -10,11 +10,8 @@
 
 #import "YYRequest.h"
 #import "YYBaseRequest.h"
-
-
 #import "YYNetworkAgent.h"
 #import "YYNetworkConfig.h"
-
 #import "YYBatchRequest.h"
 #import "YYChainRequest.h"
 
@@ -27,15 +24,10 @@ FOUNDATION_EXPORT void YYLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 @interface YYNetworkUtils : NSObject
 
 + (BOOL)validateJSON:(id)json withValidator:(id)jsonValidator;
-
 + (void)addDoNotBackupAttribute:(NSString *)path;
-
 + (NSString *)md5StringFromString:(NSString *)string;
-
 + (NSString *)appVersionString;
-
 + (NSStringEncoding)stringEncodingWithRequest:(YYBaseRequest *)request;
-
 + (BOOL)validateResumeData:(NSData *)data;
 
 @end

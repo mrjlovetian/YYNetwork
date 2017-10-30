@@ -22,6 +22,7 @@
 ///
 ///  @return A new url which will be used as a new `requestUrl`
 - (NSString *)filterUrl:(NSString *)originUrl withRequest:(YYBaseRequest *)request;
+
 @end
 
 ///  YYNacheDirPathFilterProtocol can be used to append common path components when caching response results
@@ -33,6 +34,7 @@
 ///
 ///  @return A new path which will be used as base path when caching.
 - (NSString *)filterCacheDirPath:(NSString *)originPath withRequest:(YYBaseRequest *)request;
+
 @end
 
 
@@ -69,6 +71,5 @@
 - (void)addCacheDirPathFilter:(id<YYNacheDirPathFilterProtocol>)filter;
 ///  Clear all cache path filters.
 - (void)clearCacheDirPathFilter;
-
 
 @end

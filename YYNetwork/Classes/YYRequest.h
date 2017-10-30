@@ -18,7 +18,7 @@ NS_ENUM(NSInteger) {
     YYRequestCacheErrorInvalidCacheTime = -5,
     YYRequestCacheErrorInvalidMetadata = -6,
     YYRequestCacheErrorInvalidCacheData = -7,
-    };
+};
 
 
 @interface YYRequest : YYBaseRequest

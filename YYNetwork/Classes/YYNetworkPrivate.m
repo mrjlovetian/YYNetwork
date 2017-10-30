@@ -163,8 +163,6 @@ void YYLog(NSString *format, ...) {
 
 @end
 
-
-
 @implementation YYBatchRequest (RequestAccessory)
 
 - (void)toggleAccessoriesWillStartCallBack {

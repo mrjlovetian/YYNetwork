@@ -14,16 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YYNetworkAgent : NSObject
 
--(instancetype)init;
+- (instancetype)init;
 
-+(YYNetworkAgent *)sharedAgent;
-
--(void)addRequest:(YYBaseRequest *)request;
-
--(void)cancelRequest:(YYBaseRequest *)request;
-
--(void)cancelAllRequests;
-
++ (YYNetworkAgent *)sharedAgent;
+- (void)addRequest:(YYBaseRequest *)request;
+- (void)cancelRequest:(YYBaseRequest *)request;
+- (void)cancelAllRequests;
 ///  Return the constructed URL of request.
 ///
 ///  @param request The request to parse. Should not be nil.
