@@ -67,7 +67,6 @@ typedef void (^YYNhainCallback)(YYNhainRequest *chainRequest, YYBaseRequest *bas
 ///  @param callback The finish callback
 - (void)addRequest:(YYBaseRequest *)request callback:(nullable YYNhainCallback)callback;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

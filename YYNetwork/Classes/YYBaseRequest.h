@@ -11,14 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 FOUNDATION_EXPORT NSString *const YYRequestValidationErrorDomain ;
 
 NS_ENUM(NSInteger) {
     YYRequestValidationErrorInvalidStatusCode = -8,
     YYRequestValidationErrorInvalidJSONFormat = -9,
 };
-
     
 ///  HTTP Request method. 请求方式
 typedef NS_ENUM(NSInteger, YYRequestMethod) {

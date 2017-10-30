@@ -585,5 +585,4 @@
     _manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
 }
 
-
 @end

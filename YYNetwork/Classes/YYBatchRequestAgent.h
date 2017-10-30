@@ -24,6 +24,5 @@ NS_ASSUME_NONNULL_BEGIN
 ///  Remove a previously added batch request.
 - (void)removeBatchRequest:(YYBatchRequest *)request;
 
-
 @end
 NS_ASSUME_NONNULL_END
