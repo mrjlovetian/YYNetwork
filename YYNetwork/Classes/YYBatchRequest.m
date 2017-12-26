@@ -122,7 +122,7 @@
         [self clearCompletionBlock];
         [self toggleAccessoriesDidStopCallBack];
         [[YYBatchRequestAgent sharedAgent] removeBatchRequest:self];
-    }else{
+    } else {
         
         float percent = [[NSString stringWithFormat:@"%.2f", floorf(_finishedCount) / floorf(_requestArray.count)] floatValue];
         //回调完成百分比
