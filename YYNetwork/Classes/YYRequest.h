@@ -20,7 +20,6 @@ NS_ENUM(NSInteger) {
     YYRequestCacheErrorInvalidCacheData = -7,
 };
 
-
 @interface YYRequest : YYBaseRequest
 
 ///  Whether to use cache as response or not.
@@ -66,7 +65,6 @@ NS_ENUM(NSInteger) {
 
 ///  Whether cache is asynchronously written to storage. Default is YES.
 - (BOOL)writeCacheAsynchronously;
-
 
 @end
     

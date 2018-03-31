@@ -328,8 +328,6 @@ typedef void(^YYRequestFinishBlock)();
 ///  This validator will be used to test if `responseStatusCode` is valid.
 - (BOOL)statusCodeValidator;
 
-
-
 @end
 
     

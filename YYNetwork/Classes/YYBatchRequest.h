@@ -97,7 +97,6 @@ NS_ASSUME_NONNULL_BEGIN
 ///  Whether all response data is from local cache.
 - (BOOL)isDataFromCache;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

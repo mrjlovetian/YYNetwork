@@ -13,7 +13,6 @@
     NSMutableArray<id<YYNacheDirPathFilterProtocol>> *_cacheDirPathFilters;
 }
 
-
 + (YYNetworkConfig *)sharedConfig {
     static id sharedInstance = nil;
     static dispatch_once_t onceToken;

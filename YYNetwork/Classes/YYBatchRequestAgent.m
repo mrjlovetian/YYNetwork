@@ -7,7 +7,6 @@
 //
 
 #import "YYBatchRequestAgent.h"
-
 #import "YYBatchRequest.h"
 
 @interface YYBatchRequestAgent()
@@ -46,6 +45,5 @@
         [_requestArray removeObject:request];
     }
 }
-
 
 @end

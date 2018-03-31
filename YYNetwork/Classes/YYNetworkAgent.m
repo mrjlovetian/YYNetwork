@@ -24,10 +24,8 @@
     AFJSONResponseSerializer *_jsonResponseSerializer;
     AFXMLParserResponseSerializer *_xmlParserResponseSerialzier;
     NSMutableDictionary<NSNumber *,YYBaseRequest *> *_requestsRecord;
-    
     pthread_mutex_t _lock;
      //接收返回状态码
-//    NSIndexSet *_allStatusCodes;
 }
 
 + (YYNetworkAgent *)sharedAgent {
@@ -61,7 +59,6 @@
     if (!_jsonResponseSerializer) {
         _jsonResponseSerializer = [AFJSONResponseSerializer serializer];
         //_jsonResponseSerializer.acceptableStatusCodes = _allStatusCodes;
-        
     }
     return _jsonResponseSerializer;
 }
@@ -187,7 +184,6 @@
     }
 }
 
-
 ///请求准备开始
 - (void)addRequest:(YYBaseRequest *)request {
     NSParameterAssert(request != nil);
@@ -262,7 +258,6 @@
     }
 }
 
-
 - (BOOL)validateResult:(YYBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
     BOOL result = [request statusCodeValidator];
     if (!result) {
@@ -310,8 +305,6 @@
     } else {
         request = [requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:error];
     }
-
-    
     
     __block NSURLSessionDataTask *dataTask = nil;
    
@@ -323,19 +316,12 @@
         } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
             [self handleRequestResult:dataTask responseObject:responseObject error:error];
         }];
-    }else{
+    } else {
         dataTask = [_manager dataTaskWithRequest:request
                                completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *_error) {
                                    [self handleRequestResult:dataTask responseObject:responseObject error:_error];
                                }];
     }
-
-    
-    
-    
-    
-    
-    
     
     return dataTask;
 }
@@ -403,7 +389,6 @@
         [request clearCompletionBlock];
     });
 }
-
 
 - (void)requestDidSucceedWithRequest:(YYBaseRequest *)request {
     @autoreleasepool {
@@ -542,8 +527,6 @@
     }
     return downloadTask;
 }
-
-
 
 #pragma mark - Resumable Download
 

@@ -89,7 +89,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
 
 - (void)start {
     
-    ///忽略缓存
+    /// 忽略缓存
     if (self.ignoreCache) {
         [self startWithoutCache];
         return;
@@ -101,7 +101,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
         return;
     }
     
-    ///判断缓存文件是否有效
+    /// 判断缓存文件是否有效
     if (![self loadCacheWithError:nil]) {
         [self startWithoutCache];
         return;
@@ -206,7 +206,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
 #pragma mark -
 
 - (BOOL)loadCacheWithError:(NSError * _Nullable __autoreleasing *)error {
-    // 是否存在缓存时间
+    /// 是否存在缓存时间
     if ([self cacheTimeInSeconds] < 0) {
         if (error) {
             *error = [NSError errorWithDomain:YYRequestCacheErrorDomain code:YYRequestCacheErrorInvalidCacheTime userInfo:@{ NSLocalizedDescriptionKey:@"Invalid cache time"}];
@@ -214,7 +214,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
         return NO;
     }
     
-    // http请求 缓存文件是否存在
+    /// http请求 缓存文件是否存在
     if (![self loadCacheMetadata]) {
         if (error) {
             *error = [NSError errorWithDomain:YYRequestCacheErrorDomain code:YYRequestCacheErrorInvalidMetadata userInfo:@{ NSLocalizedDescriptionKey:@"Invalid metadata. Cache may not exist"}];
@@ -239,7 +239,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
 }
 
 - (BOOL)validateCacheWithError:(NSError * _Nullable __autoreleasing *)error {
-    // Date  判断日期，缓存文件是否过期
+    /// Date  判断日期，缓存文件是否过期
     NSDate *creationDate = self.cacheMetadata.creationDate;
     NSTimeInterval duration = -[creationDate timeIntervalSinceNow];
     if (duration < 0 || duration > [self cacheTimeInSeconds]) {
@@ -248,7 +248,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
         }
         return NO;
     }
-    // Version  文件缓存模式版本号 是否一致
+    /// Version  文件缓存模式版本号 是否一致
     long long cacheVersionFileContent = self.cacheMetadata.version;
     if (cacheVersionFileContent != [self cacheVersion]) {
         if (error) {
@@ -268,7 +268,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
             return NO;
         }
     }
-    // App version  判断缓存版本号是否一致
+    /// App version  判断缓存版本号是否一致
     NSString *appVersionString = self.cacheMetadata.appVersionString;
     NSString *currentAppVersionString = [YYNetworkUtils appVersionString];
     if (appVersionString || currentAppVersionString) {
@@ -282,7 +282,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     return YES;
 }
 
-///http请求文件 是否存在
+/// http请求文件 是否存在
 - (BOOL)loadCacheMetadata {
     NSString *path = [self cacheMetadataFilePath];
     NSFileManager * fileManager = [NSFileManager defaultManager];
@@ -298,7 +298,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     return NO;
 }
 
-///读取缓存文件
+/// 读取缓存文件
 - (BOOL)loadCacheData {
     NSString *path = [self cacheFilePath];
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -370,7 +370,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     }
 }
 
-///创建基础目录
+/// 创建基础目录
 - (void)createBaseDirectoryAtPath:(NSString *)path {
     NSError *error = nil;
     [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES
@@ -382,7 +382,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     }
 }
 
-///缓存路径
+/// 缓存路径
 - (NSString *)cacheBasePath {
     NSString *pathOfLibrary = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *path = [pathOfLibrary stringByAppendingPathComponent:@"LazyRequestCache"];
@@ -399,7 +399,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     return path;
 }
 
-///http 缓存文件名称
+/// http 缓存文件名称
 - (NSString *)cacheFileName {
     NSString *requestUrl = [self requestUrl];
     NSString *baseUrl = [YYNetworkConfig sharedConfig].baseUrl;
@@ -410,7 +410,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     return cacheFileName;
 }
 
-///http请求 缓存文件路径
+/// http请求 缓存文件路径
 - (NSString *)cacheFilePath {
     NSString *cacheFileName = [self cacheFileName];
     NSString *path = [self cacheBasePath];
@@ -418,7 +418,7 @@ static dispatch_queue_t YYRequest_cache_writing_queue() {
     return path;
 }
 
-///http请求缓存文件的版本信息路径
+/// http请求缓存文件的版本信息路径
 - (NSString *)cacheMetadataFilePath {
     NSString *cacheMetadataFileName = [NSString stringWithFormat:@"%@.metadata", [self cacheFileName]];
     NSString *path = [self cacheBasePath];

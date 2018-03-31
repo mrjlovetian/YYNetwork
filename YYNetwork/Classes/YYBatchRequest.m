@@ -130,9 +130,7 @@
             [_delegate batchRequestPercentFinished:percent];
         }
         
-        if(_percentCompletionBlock)
-        {
-            
+        if(_percentCompletionBlock) {
             _percentCompletionBlock(percent);
         }
     }
@@ -174,6 +172,5 @@
     }
     [self.requestAccessories addObject:accessory];
 }
-
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import <AFNetworking/AFNetworking.h>
 
 @class YYNetworkConfig;
@@ -61,7 +60,7 @@
 ///  Whether to log debug info. Default is NO;
 @property (nonatomic) BOOL debugLogEnabled;
 ///  SessionConfiguration will be used to initialize AFHTTPSessionManager. Default is nil.
-@property (nonatomic, strong) NSURLSessionConfiguration* sessionConfiguration;
+@property (nonatomic, strong) NSURLSessionConfiguration *sessionConfiguration;
 
 ///  Add a new URL filter.
 - (void)addUrlFilter:(id<YYUrlFilterProtocol>)filter;

@@ -81,9 +81,7 @@ void YYLog(NSString *format, ...) {
 
 + (NSString *)md5StringFromString:(NSString *)string {
     NSParameterAssert(string != nil && [string length] > 0);
-    
     const char *value = [string UTF8String];
-    
     unsigned char outputBuffer[CC_MD5_DIGEST_LENGTH];
     CC_MD5(value, (CC_LONG)strlen(value), outputBuffer);
     
@@ -219,5 +217,3 @@ void YYLog(NSString *format, ...) {
 }
 
 @end
-
-
